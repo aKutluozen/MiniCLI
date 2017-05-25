@@ -1,0 +1,31 @@
+<!doctype html>
+<html ng-app="cli">
+
+<head>
+    <title>MiniCLI by A. Kutluozen</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta name="author" content="Ali Kutluozen">
+    
+    <link rel="stylesheet" href="style/style.css" />
+    
+    <script src="scripts/angularjs/angular.min.js"></script>
+    <script src="scripts/angularjs/angular-sanitize.min.js"></script>
+    <script src="scripts/app/directory.js"></script>
+    <script src="scripts/app/file.js"></script>
+    <script src="scripts/app/cli.js"></script>
+</head>
+
+<body ng-controller="cliController">
+    <div id="outer">
+        <div id="machine">
+            <div id="output">
+                <p id="title">MiniCLI by A. Kutluozen</p>
+                <p ng-bind-html="output"></p>
+            </div>
+            <input type="text" id="input" ng-model="input" placeholder="Please enter your commands here of enter 'help'" ng-keypress="($event.which === 13)?execute():0" autofocus/>
+        </div>
+    </div>
+</body>
+
+</html>
