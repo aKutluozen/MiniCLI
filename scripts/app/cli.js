@@ -12,11 +12,11 @@ cli.controller("cliController", function ($scope, $interval) {
 
     // VARIABLES -------------------------------------------------------------------------------------
     
-    var path = new Array(); // Array used as a stack to keep track of directories visited
-    path.push(new Directory("root")); // Initial directory
-    var pwd = path[0]; // Present working directory
-    var command, parameter; // Commands and parameters to be parsed from the input
-    $scope.output = ""; // Empty output
+    var path = new Array();             // Array used as a stack to keep track of directories visited
+    path.push(new Directory("root"));   // Initial directory
+    var pwd = path[0];                  // Present working directory
+    var command, parameter;             // Commands and parameters to be parsed from the input
+    $scope.output = "";                 // Empty output
     
     // Cache the necessary DOM elements for future use
     var out = document.getElementById("output"),
@@ -159,10 +159,10 @@ cli.controller("cliController", function ($scope, $interval) {
             // Navigation
             case "cd":
                 if (parameter) {
-                    var oldPwd = pwd, // Keep track of the old directory
-                        longPath = parameter.split("/"), // Input to be split
+                    var oldPwd = pwd,                           // Keep track of the old directory
+                        longPath = parameter.split("/"),        // Input to be split
                         needed = longPath[longPath.length - 1], // Searched directory
-                        found = false, // or an object
+                        found = false,                          // or an object
                         flag = false,
                         startVal = 1,
                         fakepath = path.slice();
@@ -200,10 +200,10 @@ cli.controller("cliController", function ($scope, $interval) {
                     
                     // The result
                     if (flag) {
-                        path = fakepath; // Make the fake path the real path
+                        path = fakepath;    // Make the fake path the real path
                         print(showPath());
                     } else {
-                        pwd = oldPwd; // Restore the old directory
+                        pwd = oldPwd;       // Restore the old directory
                         print("Directory not found!");
                     }
                 } else {
